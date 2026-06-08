@@ -1,0 +1,18 @@
+{
+  "name": "@effindomv2/fui-kt",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-only OR LicenseRef-EffinDom-Commercial",
+  "type": "module",
+  "scripts": {
+    "build": "bash scripts/build.sh",
+    "test": "./gradlew jvmTest",
+    "test:smoke": "npx playwright test -c playwright.config.ts",
+    "typecheck": "./gradlew compileKotlinJvm compileKotlinWasmJs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.59.1",
+    "@types/node": "^24.10.1",
+    "pngjs": "^7.0.0"
+  }
+}
