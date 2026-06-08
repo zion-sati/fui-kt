@@ -119,7 +119,7 @@ fun main() {
 - `Ffi` interface — FFI to the C++ UI runtime
 - `Runtime.init(ffi)` — Wire the FFI implementation
 - `NodeType.FlexBox` / `NodeType.Text` — Node type enum
-- `Unit.Pixel` / `Unit.Auto` / `Unit.Star` — Size unit enum
+- `SizeSizeUnit.Pixel` / `SizeSizeUnit.Auto` / `SizeSizeUnit.Star` — Size unit enum
 
 ## Architecture
 

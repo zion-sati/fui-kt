@@ -34,7 +34,7 @@ enum class NodeType(val value: Int) {
     Text(1)
 }
 
-enum class Unit(val value: Int) {
+enum class SizeUnit(val value: Int) {
     Pixel(0),
     Auto(1),
     Star(2)
@@ -46,19 +46,19 @@ enum class FlexDirection(val value: Int) {
 }
 
 class FlexBox : Node() {
-    private var width: Pair<Float, Unit>? = null
-    private var height: Pair<Float, Unit>? = null
+    private var width: Pair<Float, SizeUnit>? = null
+    private var height: Pair<Float, SizeUnit>? = null
     private var bgColor: Int? = null
     private var padding: Quad<Float>? = null
     private var flexDirection: FlexDirection? = null
     private val children = mutableListOf<Node>()
 
-    fun width(value: Float, unit: Unit = Unit.Pixel): FlexBox {
+    fun width(value: Float, unit: SizeUnit = SizeUnit.Pixel): FlexBox {
         width = Pair(value, unit)
         return this
     }
 
-    fun height(value: Float, unit: Unit = Unit.Pixel): FlexBox {
+    fun height(value: Float, unit: SizeUnit = SizeUnit.Pixel): FlexBox {
         height = Pair(value, unit)
         return this
     }
