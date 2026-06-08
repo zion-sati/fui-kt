@@ -1,4 +1,5 @@
 import type { BridgeRuntime, BridgeState, WasmHandleLike } from '../../../browser-bridge/src/index.js';
+import { normalizePointerForWasm } from '../../browser-bridge/src/bridge/utils/encoding.js';
 
 declare global {
   interface Window {
@@ -80,9 +81,10 @@ function createUiImports(runtime: BridgeRuntime): Record<string, unknown> {
         return;
       }
       const bytes = new TextEncoder().encode(text);
-      const ptr = runtime.ui._ui_arena_alloc(bytes.length);
-      // _ui_arena_alloc returns BigInt on wasm64 — convert to number for HEAPU8 offset.
-      const offset = Number(toBigIntHandle(ptr));
+      const rawPtr = runtime.ui._ui_arena_alloc(bytes.length);
+      const ptr = normalizePointerForWasm(runtime.ui, rawPtr);
+      const offset = Number(ptr);
+      runtime.ui.refreshHeapViews?.();
       runtime.ui.HEAPU8.set(bytes, offset);
       runtime.ui._ui_set_text(bigHandle, ptr, bytes.length);
     },
