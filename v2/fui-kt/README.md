@@ -1,6 +1,6 @@
 # FUI-KT — Kotlin/Wasm bindings for EffinDom v2
 
-> **⚠️ Early stage.** FUI-KT is a thin Kotlin/Wasm binding over the shared
+> **⚠️ Early stage — instructions are temporary and likely to break.** FUI-KT is a thin Kotlin/Wasm binding over the shared
 > C++ ABI.  It currently provides a bare-bones smoke app and a fluent node
 > builder.  Controls, theming, signals, and component reconciliation are
 > planned for future slices.  Expect breaking changes.
@@ -13,13 +13,14 @@ brew install openjdk@17 gradle    # macOS
 # or: sudo apt install openjdk-17-jdk && sdk install gradle 9.5.1  # Linux
 
 # Clone and build
-git clone https://github.com/zion-sati/EffinDOM.git
-cd EffinDOM
+git clone https://github.com/zion-sati/fui-kt.git
+cd fui-kt
 npm ci
-npm run build:v2:browser-bridge
-npm run build:v2:fui-kt
+npm run build
 npm run serve
 ```
+
+Open `http://127.0.0.1:8080/index.html`.
 
 Open `http://127.0.0.1:8080/v2/fui-kt/index.html`.
 
